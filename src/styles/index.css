@@ -1,4 +1,19 @@
-/* Styles for the Yatt */
 body {
-  background-color: #fafafa;
+  font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Mono", "Droid Sans Mono", "Source Code Pro", monospace;
+  background-color: #3f3f3f;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.timer {
+  color: #fff;
+  font-size: 80vh;
+  line-height: 80vh;
+  margin: 0;
 }
