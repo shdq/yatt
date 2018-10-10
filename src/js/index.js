@@ -12,7 +12,7 @@ let bar = document.createElement('div');
 bar.className = 'progress-bar';
 document.body.appendChild(bar);
 let barWidth;
-duration % 60000 != 0 ? barWidth = (duration % 60000 / 1000) / (60 / 100) : barWidth = 100 / 60; // precalculation of % of progress bar width for time with seconds
+duration % 60000 != 0 ? barWidth = 100 - ((duration % 60000 / 1000) / (60 / 100)) : barWidth = 100 / 60; // precalculation of % of progress bar width for time with seconds
 
 const startButton = document.createElement('button');
 startButton.innerHTML = 'Start';
@@ -47,6 +47,7 @@ function startTimer() {
     bar.style.width = `${barWidth}%`;
     barWidth += 100 / 60;
 
+    console.log(duration/1000);
     duration = duration - 1000;
 
   }, 1000);
