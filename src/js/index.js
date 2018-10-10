@@ -2,17 +2,17 @@ const app = document.getElementById('app');
 let div = document.createElement('div');
 let p = document.createElement('p');
 
-let bar = document.createElement('div');
-let width = 100 / 60;
-bar.className = 'progress-bar';
-document.body.appendChild(bar);
-
-let duration = 180000;
-
+let duration = 140000;
 div.className = 'container';
 app.appendChild(div);
 p.className = 'timer';
 div.appendChild(p);
+
+let bar = document.createElement('div');
+bar.className = 'progress-bar';
+document.body.appendChild(bar);
+let barWidth;
+duration % 60000 != 0 ? barWidth = (duration % 60000 / 1000) / (60 / 100) : barWidth = 100 / 60; // precalculation of % of progress bar width for time with seconds
 
 const startButton = document.createElement('button');
 startButton.innerHTML = 'Start';
@@ -41,11 +41,11 @@ function startTimer() {
       p.innerHTML = 'You are out of time.';
     }
 
-    if(width >= 100) {
-      width = 0;
+    if(barWidth >= 100) {
+      barWidth = 0;
     }
-    bar.style.width = `${width}%`;
-    width += 100 / 60;
+    bar.style.width = `${barWidth}%`;
+    barWidth += 100 / 60;
 
     duration = duration - 1000;
 
