@@ -2,7 +2,18 @@ const app = document.getElementById('app');
 let div = document.createElement('div');
 let p = document.createElement('p');
 
-let duration = 140000;
+let select = document.createElement('select');
+let option;
+for(let i = 0; i <= 30; i++) {
+  option = document.createElement('option');
+  option.innerHTML = `${i} minutes`;
+  option.value = i * 60000;
+  if(i === 3) option.setAttribute('selected', '');
+  select.appendChild(option);
+}
+div.appendChild(select);
+
+let duration = 0;
 div.className = 'container';
 app.appendChild(div);
 p.className = 'timer';
@@ -21,6 +32,10 @@ startButton.addEventListener('click', startTimer);
 
 function startTimer() {
   startButton.style.display = 'none';
+
+  let select = document.getElementsByTagName('select')[0];
+  select.style.display = 'none';
+  duration = select.value;
 
   let minutes;
   let timer = setInterval(() => {
@@ -47,7 +62,6 @@ function startTimer() {
     bar.style.width = `${barWidth}%`;
     barWidth += 100 / 60;
 
-    console.log(duration/1000);
     duration = duration - 1000;
 
   }, 1000);
