@@ -4,7 +4,7 @@ let p = document.createElement('p');
 
 let select = document.createElement('select');
 let option;
-for(let i = 0; i <= 30; i++) {
+for(let i = 1; i <= 30; i++) {
   option = document.createElement('option');
   option.innerHTML = `${i} minutes`;
   option.value = i * 60000;
