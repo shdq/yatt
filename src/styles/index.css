@@ -27,3 +27,18 @@ body {
   height: 100vh;
   background-color: #4f4f4f;
 }
+
+.start-button {
+  font-size: 1rem;
+}
+
+.select {
+  font-size: 1rem;
+  margin-right: 5px;
+}
+
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

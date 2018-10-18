@@ -3,6 +3,7 @@ let div = document.createElement('div');
 let p = document.createElement('p');
 
 let select = document.createElement('select');
+select.className = 'select';
 let option;
 for(let i = 1; i <= 30; i++) {
   option = document.createElement('option');
@@ -26,6 +27,7 @@ let barWidth;
 duration % 60000 != 0 ? barWidth = 100 - ((duration % 60000 / 1000) / (60 / 100)) : barWidth = 100 / 60; // precalculation of % of progress bar width for time with seconds
 
 const startButton = document.createElement('button');
+startButton.className = 'start-button';
 startButton.innerHTML = 'Start';
 div.appendChild(startButton);
 startButton.addEventListener('click', startTimer);
