@@ -13,8 +13,8 @@ body {
 
 .timer {
   color: #fff;
-  font-size: 80vh;
-  line-height: 80vh;
+  font-size: 80vmin;
+  line-height: 80vmin;
   margin: 0;
   z-index: 9999;
 }
