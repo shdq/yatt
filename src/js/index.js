@@ -35,6 +35,9 @@ startButton.addEventListener('click', startTimer);
 function startTimer() {
   startButton.style.display = 'none';
 
+  let logo = document.getElementsByClassName('logo')[0];
+  logo.style.display = 'none';
+
   let select = document.getElementsByTagName('select')[0];
   select.style.display = 'none';
   duration = select.value;
