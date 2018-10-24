@@ -32,14 +32,53 @@ startButton.innerHTML = 'Start';
 div.appendChild(startButton);
 startButton.addEventListener('click', startTimer);
 
-function startTimer() {
+const delayedStartButton = document.createElement('button');
+delayedStartButton.className = 'start-button';
+delayedStartButton.innerHTML = 'Start in 10 sec';
+div.appendChild(delayedStartButton);
+
+let message = document.createElement('p');
+
+delayedStartButton.addEventListener('click', () => {
+  hideElements();
+  
+  message.style.color = '#fff';
+  message.style.fontSize = '2rem';
+  let timeout = 9;
+  let countdown = setInterval(() => {
+    message.innerHTML = `Timer starts in ${timeout} sec...`;
+    if(timeout == 0) {
+      clearInterval(countdown);
+    }
+    timeout = timeout - 1;
+  }, 1000);
+
+  div.appendChild(message);
+
+  setTimeout(startTimer, 10000);
+});
+
+let isHidden = false;
+
+function hideElements() {
   startButton.style.display = 'none';
+  delayedStartButton.style.display = 'none';
 
   let logo = document.getElementsByClassName('logo')[0];
   logo.style.display = 'none';
 
   let select = document.getElementsByTagName('select')[0];
   select.style.display = 'none';
+
+  isHidden = true;
+}
+
+function startTimer() {
+
+  if (!isHidden) hideElements();
+
+  message.style.display = 'none';
+
   duration = select.value;
 
   let minutes;
