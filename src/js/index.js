@@ -1,3 +1,15 @@
+/**
+ * Registering service worker for offline features
+ */
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('./sw.js')
+  .then(registration => navigator.serviceWorker.ready)
+  .then(registration => {
+    console.log('Registration successful, scope is:', registration.scope)
+  })
+  .catch(error => console.log('Service worker registration failed, error:', error));
+}
+
 const app = document.getElementById('app');
 let div = document.createElement('div');
 let p = document.createElement('p');
